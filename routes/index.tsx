@@ -1,22 +1,19 @@
-import { Head } from "$fresh/runtime.ts";
+import CreateSubmit from "../islands/Submit.tsx";
+import WeatherResp from "../data/interface.ts";
+import Header from "../components/Header.tsx";
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Fresh App</title>
-      </Head>
-      <div class="p-4 mx-auto max-w-screen-md">
-        <img
-          src="/logo.svg"
-          class="w-32 h-32"
-          alt="the fresh logo: a sliced lemon dripping with juice"
-        />
-        <p class="my-6">
-          Welcome to `fresh`. Try updating this message in the ./routes/index.tsx
-          file, and refresh.
-        </p>
+    return (
+      <div class="flex flex-col min-h-screen ">
+        <div class="flex-grow relative">
+          <img src="/sky_bg.jpeg" style="z-index: -999999;" class="absolute w-screen min-h-screen"/>
+          <div style="display:flex; flex-direction:row" class="flex">
+            <div class="mx-auto rounded-lg max-w-screen-md h-1/6 mt-20">
+              <Header></Header>
+              <CreateSubmit></CreateSubmit>
+            </div>
+          </div>
+        </div>
       </div>
-    </>
-  );
+    );
 }
